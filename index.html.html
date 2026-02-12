@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre recetas auténticas birmanas adaptadas para Europa. Talleres de cocina trimestral en Barcelona.">
+    <title>Sabores de Myanmar - Recetas Auténticas Birmanas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --turmeric: #D4A574;
+            --deep-saffron: #C86D3C;
+            --tamarind: #8B4513;
+            --cilantro: #4A7C59;
+            --paprika: #B8452E;
+            --cream: #FFF8F0;
+            --warm-white: #FFFBF5;
+            --charcoal: #2C2420;
+            --soft-shadow: rgba(200, 109, 60, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 251, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--tamarind);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--deep-saffron);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-saffron);
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            cursor: pointer;
+            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--turmeric);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            position: relative;
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 2rem;
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--paprika), var(--deep-saffron));
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            width: fit-content;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            line-height: 1.1;
+            color: var(--tamarind);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-highlight {
+            color: var(--deep-saffron);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(to right, transparent, var(--turmeric), transparent);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #5a5a5a;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--deep-saffron), var(--paprika));
+            color: white;
+            box-shadow: 0 10px 30px var(--soft-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--soft-shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--tamarind);
+            border: 2px solid var(--tamarind);
+        }
+
+        .btn-secondary:hover {
+            background: var(--tamarind);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInRight 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .food-circle {
+            position: relative;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--turmeric) 100%);
+            box-shadow: 0 30px 80px rgba(200, 109, 60, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .food-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .food-image-placeholder {
+            width: 480px;
+            height: 480px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            /* Using your authentic Burmese mohinga image */
+            background-image: url('images/mohinga.jpg');
+        }
+
+        .floating-spice {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--warm-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-size: 2rem;
+        }
+
+        .spice-1 {
+            top: 10%;
+            left: -5%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .spice-2 {
+            bottom: 15%;
+            right: -5%;
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        .spice-3 {
+            top: 50%;
+            left: -10%;
+            animation: float 3s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Featured Recipe Section */
+        .featured-recipe {
+            background: linear-gradient(to bottom, var(--warm-white) 0%, var(--cream) 100%);
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .featured-recipe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--turmeric), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--deep-saffron);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--tamarind);
+            font-weight: 700;
+        }
+
+        .recipe-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .recipe-card:nth-child(1) { animation-delay: 0.1s; }
+        .recipe-card:nth-child(2) { animation-delay: 0.2s; }
+        .recipe-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(200, 109, 60, 0.15);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .recipe-card:hover .recipe-image {
+            transform: scale(1.05);
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cilantro);
+            z-index: 10;
+        }
+
+        .recipe-content {
+            padding: 2rem;
+        }
+
+        .recipe-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--tamarind);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .recipe-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Workshop Section */
+        .workshop-section {
+            background: var(--tamarind);
+            color: white;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workshop-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(212, 165, 116, 0.1));
+        }
+
+        .workshop-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .workshop-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .workshop-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .workshop-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .workshop-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .workshop-features li::before {
+            content: '✓';
+            color: var(--turmeric);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .workshop-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .workshop-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .workshop-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .workshop-date {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--turmeric);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--cream);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--tamarind);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            border: 2px solid var(--turmeric);
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--deep-saffron);
+            box-shadow: 0 0 0 4px rgba(200, 109, 60, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--turmeric);
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            color: var(--turmeric);
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--turmeric);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                height: auto;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .food-circle {
+                width: 400px;
+                height: 400px;
+            }
+
+            .food-image-placeholder {
+                width: 350px;
+                height: 350px;
+            }
+
+            .recipe-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workshop-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .workshop-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .food-circle {
+                width: 300px;
+                height: 300px;
+            }
+
+            .food-image-placeholder {
+                width: 260px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Sabores de Myanmar</div>
+            <ul class="nav-links">
+                <li><a href="#recetas">Recetas</a></li>
+                <li><a href="#talleres">Talleres</a></li>
+                <li><a href="#ingredientes">Ingredientes</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            </ul>
+            <div class="lang-selector">
+                <button class="lang-btn active">ES</button>
+                <button class="lang-btn">EN</button>
+                <button class="lang-btn">FR</button>
+                <button class="lang-btn">DE</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✨ Próximo Taller: 15 de Marzo 2026</div>
+            <h1>Descubre los <span class="hero-highlight">Sabores Ocultos</span> del Sudeste Asiático</h1>
+            <p>Recetas auténticas birmanas adaptadas para tu cocina europea. Aprende técnicas tradicionales con ingredientes que encuentras en España.</p>
+            <div class="cta-buttons">
+                <a href="#recetas" class="btn btn-primary">Explorar Recetas</a>
+                <a href="#talleres" class="btn btn-secondary">Ver Talleres</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="food-circle">
+                <div class="food-image-placeholder"></div>
+                <div class="floating-spice spice-1">🌶️</div>
+                <div class="floating-spice spice-2">🥥</div>
+                <div class="floating-spice spice-3">🧄</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section class="featured-recipe" id="recetas">
+        <div class="section-header">
+            <div class="section-subtitle">Recetas Destacadas</div>
+            <h2 class="section-title">Comienza Tu Aventura Culinaria</h2>
+        </div>
+        <div class="recipe-grid">
+            <!-- Recipe 1: Shan Noodles - Your authentic image! -->
+            <div class="recipe-card">
+                <div class="recipe-image" style="background-image: url('images/shan-noodles.jpg');">
+                    <div class="difficulty-badge">Fácil</div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Shan Noodles</h3>
+                    <p class="recipe-description">Fideos tradicionales del estado Shan con pollo en salsa de tomate especiada. Auténtico y delicioso.</p>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span>⏱️</span>
+                            <span>60 min</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>4 personas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 2: Tea Leaf Salad - Your authentic image! -->
+            <div class="recipe-card">
+                <div class="recipe-image" style="background-image: url('images/tea-leaf-salad.jpg');">
+                    <div class="difficulty-badge">Media</div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Tea Leaf Salad</h3>
+                    <p class="recipe-description">Ensalada de hojas de té fermentadas con cacahuetes crujientes. Una explosión única de texturas y sabores.</p>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span>⏱️</span>
+                            <span>20 min</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>6 personas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 3: Mohinga - Your authentic image! -->
+            <div class="recipe-card">
+                <div class="recipe-image" style="background-image: url('images/mohinga.jpg');">
+                    <div class="difficulty-badge">Avanzado</div>
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Mohinga</h3>
+                    <p class="recipe-description">Sopa de fideos de pescado, el plato nacional de Myanmar. Aromática, especiada y perfecta para el desayuno.</p>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <span>⏱️</span>
+                            <span>45 min</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>4 personas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Section -->
+    <section class="workshop-section" id="talleres">
+        <div class="workshop-container">
+            <div class="workshop-content">
+                <h2>Talleres de Cocina Trimestral</h2>
+                <p>Aprende directamente de expertos en cocina birmana. Nuestros talleres trimestrales combinan técnicas tradicionales con ingredientes accesibles en Europa.</p>
+                <ul class="workshop-features">
+                    <li>Clases presenciales en Barcelona</li>
+                    <li>Grupos pequeños (máximo 12 personas)</li>
+                    <li>Todos los ingredientes incluidos</li>
+                    <li>Recetario digital descargable</li>
+                    <li>Certificado de participación</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Reserva Tu Plaza</a>
+            </div>
+            <div class="workshop-visual">
+                <div class="workshop-card">
+                    <div class="workshop-date">15 Marzo 2026</div>
+                    <h3>Esenciales de la Calle Birmana</h3>
+                    <p>Aprende los clásicos del street food</p>
+                    <div class="workshop-price">€85</div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-date">14 Junio 2026</div>
+                    <h3>Maestría en Curry</h3>
+                    <p>Domina los curries tradicionales</p>
+                    <div class="workshop-price">€95</div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-date">20 Septiembre 2026</div>
+                    <h3>Vegetariano Birmano</h3>
+                    <p>Descubre opciones plant-based</p>
+                    <div class="workshop-price">€85</div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-date">13 Diciembre 2026</div>
+                    <h3>Dulces y Postres</h3>
+                    <p>Postres tradicionales reinventados</p>
+                    <div class="workshop-price">€80</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Recibe Recetas en Tu Bandeja</h2>
+            <p>Suscríbete y recibe un e-book gratuito con 10 recetas birmanas esenciales para empezar tu viaje culinario.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="tu@email.com" required>
+                <button type="submit" class="btn btn-primary">Suscríbete Gratis</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Sabores de Myanmar</h3>
+                <p>Conectando las tradiciones culinarias birmanas con cocinas europeas a través de recetas auténticas, talleres y pasión por la comida.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Recetas</h4>
+                <ul>
+                    <li><a href="#">Desayunos</a></li>
+                    <li><a href="#">Platos Principales</a></li>
+                    <li><a href="#">Ensaladas</a></li>
+                    <li><a href="#">Postres</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guía de Ingredientes</a></li>
+                    <li><a href="#">Técnicas Culinarias</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Vídeos</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">Talleres</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Sabores de Myanmar. Todos los derechos reservados. Hecho con ❤️ en Barcelona, España.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Language selector functionality
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                langButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 251, 245, 0.98)';
+                navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 251, 245, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
