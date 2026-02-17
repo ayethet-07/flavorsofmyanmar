@@ -1,4 +1,5 @@
 npm init -y
 npm install express mongoose dotenv cors bcryptjs jsonwebtoken stripe multer cloudinary nodemailer
 npm install --save-dev nodemon
+npm list
 
